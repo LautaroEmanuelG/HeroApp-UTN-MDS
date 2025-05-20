@@ -1,0 +1,84 @@
+/* Estilos para el componente HeroCard */
+.hero-card {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.hero-card-image-container {
+    height: 200px;
+    overflow: hidden;
+}
+
+.hero-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.hero-card:hover .hero-card-image {
+    transform: scale(1.05);
+}
+
+.hero-card-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.hero-card-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #f0f0f0;
+}
+
+.hero-card-description {
+    font-size: 14px;
+    color: #a0a0a0;
+    margin: 0 0 15px;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.hero-card-team-button {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e62429;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: auto;
+    transition: background-color 0.2s;
+}
+
+.hero-card-team-button:hover:not(:disabled) {
+    background-color: #d41c20;
+}
+
+.hero-card-team-button.in-team {
+    background-color: #28a745;
+    cursor: default;
+}
+
+.hero-card-team-button.disabled {
+    background-color: #6c757d;
+    opacity: 0.7;
+    cursor: not-allowed;
+}

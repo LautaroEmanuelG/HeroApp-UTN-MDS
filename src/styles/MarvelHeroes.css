@@ -1,0 +1,65 @@
+/* Estilos para el componente MarvelHeroes */
+.marvel-heroes-page {
+    min-height: 100vh;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 80px;
+}
+
+.heroes-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.marvel-header-logo {
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.heroes-title {
+    font-size: 32px;
+    color: #f0f0f0;
+    margin: 0;
+}
+
+.heroes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    color: #f0f0f0;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #00adb5;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.error-message {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #ff6b6b;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 30px;
+}
