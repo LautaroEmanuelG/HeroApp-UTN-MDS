@@ -19,8 +19,14 @@ interface HeroTabsProps {
 
 const HeroTabs = ({ activeTab, onTabChange }: HeroTabsProps) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const { searchHeroes, searchResults, loading, team, removeFromTeam } =
-    useHeroesStore();
+  const {
+    searchHeroes,
+    searchResults,
+    loading,
+    team,
+    removeFromTeam,
+    openModal,
+  } = useHeroesStore();
   const { user } = useAuthStore();
 
   // Manejador de búsqueda
@@ -125,10 +131,12 @@ const HeroTabs = ({ activeTab, onTabChange }: HeroTabsProps) => {
             </div>
           ) : (
             <div className="team-heroes">
+              {' '}
               {team.map(hero => (
                 <div
                   key={hero.id}
-                  className="team-hero-card">
+                  className="team-hero-card"
+                  onClick={() => openModal(hero)}>
                   {' '}
                   <img
                     src={getValidHeroImageUrl(hero)}
@@ -138,13 +146,18 @@ const HeroTabs = ({ activeTab, onTabChange }: HeroTabsProps) => {
                   />
                   <div className="team-hero-details">
                     <h4>{hero.name}</h4>
-                    <p>{hero.description || 'Sin descripción disponible'}</p>
+                    <p>
+                      {hero.description || 'Sin descripción disponible'}
+                    </p>{' '}
+                    <button
+                      className="remove-team-button"
+                      onClick={e => {
+                        e.stopPropagation(); // Evitar que se abra el modal
+                        handleRemoveFromTeam(hero.id);
+                      }}>
+                      ✓ Quitar del equipo
+                    </button>
                   </div>
-                  <button
-                    className="remove-team-button"
-                    onClick={() => handleRemoveFromTeam(hero.id)}>
-                    Eliminar
-                  </button>
                 </div>
               ))}
             </div>
